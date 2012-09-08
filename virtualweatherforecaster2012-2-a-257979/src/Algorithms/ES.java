@@ -1,40 +1,23 @@
 package Algorithms;
 
-public class ES {
-    private double[] input, predictions;
-    
+public class ES extends weatherAlgorithms{
+       
     // The method ExpSmoothing executes the Exponential Smoothing algorithm,
     // using an input array of n items, assigning an output array with n+1 items.
-    public void ExpSmoothing(double[] input){
-        predictions = new double[input.length + 1];
-        for(int i=0; i<input.length; i++){
-            if(i == 0) predictions[0] = input[0];
-            else{
-                predictions[i] = predictions[i-1] + 
-                        0.2*(input[i-1] - predictions[i-1]);
+    @Override
+    public void logic(){
+        Ft = new double[At.length + 1];
+        for(int i=0; i<At.length; i++) {
+            if(i == 0) {
+                Ft[0] = At[0];
+            }
+            else {
+                Ft[i] = Ft[i-1] + 0.2*(At[i-1] - Ft[i-1]);
             }
         }
     }
-    
-    // The method MAPE calculates the MAPE error based in the input and output
-    // arrays, assigning the calculated error to the last position in the array
-    // predictions.
-    public void MAPE(double[] input, double[] predictions){
-        double M = 0;
-        for(int i=0; i<input.length; i++){
-            M += (Math.pow(predictions.length,-1)) * 
-                    Math.abs((input[i] - predictions[i])/input[i]);
-        } predictions[input.length] = 100*M;
-    }
-    
-    // Getter and Setter methods.
-    public void setInput(double[] input) {
-        this.input = input;
-    }
-
-    public double[] getPredictions() {
-        return predictions;
-    }
+        
+           
     
     /* Test
     public static void main(String[] args){

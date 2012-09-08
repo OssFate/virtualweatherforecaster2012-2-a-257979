@@ -5,7 +5,7 @@
 package Algorithms;
 
 
-public class DES {
+public class DES extends weatherAlgorithms{
     private double lt;
     private double bt;
     private double ft;
@@ -43,7 +43,7 @@ public class DES {
         
     }
     
-    double loop (double y1, double y2)
+    void loop (double y1, double y2)
     {
         lt1=lt;
         bt1=bt;
@@ -54,6 +54,15 @@ public class DES {
         
         return ft1;
     
+        Ft = new double[At.length + 1];
+        for(int i=0; i<At.length; i++) {
+            if(i == 0) {
+                Ft[0] = At[0];
+            }
+            else {
+                Ft[i] = Ft[i-1] + 0.2*(At[i-1] - Ft[i-1]);
+            }
+        }
     }
 
 
