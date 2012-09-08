@@ -7,7 +7,7 @@ public class ES extends weatherAlgorithms{
     @Override
     public void logic(){
         Ft = new double[At.length + 1];
-        for(int i=0; i<At.length; i++) {
+        for(int i=0; i < At.length; i++) {
             if(i == 0) {
                 Ft[0] = At[0];
             }
