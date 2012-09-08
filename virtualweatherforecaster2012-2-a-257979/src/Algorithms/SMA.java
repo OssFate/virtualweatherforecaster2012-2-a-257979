@@ -5,16 +5,12 @@ public class SMA extends weatherAlgorithms{
     @Override
     void logic() {
         Ft = new double[At.length + 1];
-        for(int i=0; i < At.length; i++) {
-            if(i == 0) {
-                Ft[i] = (At[i] + At[i + 1])/2;
-            }
-            else {
-                Ft[i] = Ft[i-1] - (At[At.length - i]/At.length) + (At[i]/At.length);
-            }
+        Ft[0] = (At[0] + At[1])/2;
+        for(int i=1; i < At.length - 1; i++) {
+            Ft[i] = Ft[i-1] - (At[i - 1]/At.length) + (At[i + 1]/At.length);
         }
+        Ft[At.length] = (Ft[0] + Ft[At.length - 1])/2;
     }
-    
-    
-    
+     
+   
 }

@@ -12,7 +12,7 @@ public abstract class weatherAlgorithms {
         for(int i=0; i < At.length; i++){
             M += Math.abs((At[i] - Ft[i])/At[i]);
         } 
-        Ft[At.length] = (100*M/Ft.length);
+        Ft[Ft.length] = (100*M/At.length);
     }
     
     // Getter and Setter methods.
@@ -22,7 +22,7 @@ public abstract class weatherAlgorithms {
     }
 
     public double[] getPredictions() {
-        return Ft;
+        return this.Ft;
     }
     
     abstract void logic();
