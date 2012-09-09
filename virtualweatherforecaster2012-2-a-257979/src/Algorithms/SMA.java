@@ -3,7 +3,7 @@ package Algorithms;
 public class SMA extends weatherAlgorithms{
 
     @Override
-    void logic() {
+    public void logic() {
         Ft = new double[At.length + 1];
         Ft[0] = (At[0] + At[1])/2;
         for(int i=1; i < At.length - 1; i++) {

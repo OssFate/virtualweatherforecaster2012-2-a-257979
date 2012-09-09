@@ -11,7 +11,8 @@ public class DES extends weatherAlgorithms{
     
     
     @Override
-    void logic(){
+    public void logic(){
+        Ft = new double[At.length+1];
         lt = At[0]; 
         bt = At[1] - At[0]; 
         Ft[1] = At[0]; 
